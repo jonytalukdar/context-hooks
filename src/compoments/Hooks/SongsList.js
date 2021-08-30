@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewSongForm from './NewSongForm';
 
 const SongsList = () => {
@@ -7,10 +7,19 @@ const SongsList = () => {
     { title: 'Let me down Slowly', id: 2 },
     { title: 'How much do you', id: 3 },
   ]);
+  const [age, setAge] = useState(22);
 
   const addSong = (title) => {
     setSongs([...songs, { title, id: new Date().getTime() }]);
   };
+
+  useEffect(() => {
+    console.log('useEffect ran for ', songs);
+  }, [songs]);
+
+  useEffect(() => {
+    console.log('useEffect ran for ', age);
+  }, [age]);
 
   return (
     <div className="song-list">
@@ -20,6 +29,7 @@ const SongsList = () => {
         })}
       </ul>
       <NewSongForm addSong={addSong} />
+      <button onClick={() => setAge(age + 1)}>Increase age {age}</button>
     </div>
   );
 };
