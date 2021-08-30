@@ -1,9 +1,9 @@
-import Hooks from './compoments/Hooks/App';
+import ContextApi from './compoments/ContextApi/App';
 
 function App() {
   return (
     <div className="App">
-      <Hooks />
+      <ContextApi />
     </div>
   );
 }
